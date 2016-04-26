@@ -1,0 +1,13 @@
+sudo: required
+dist: trusty
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq automake autotools-dev bison check clang flex lcov libcap-ng-dev libdbus-1-dev libdbus-glib-1-dev libdw-dev libglib2.0-dev libical-dev libreadline-dev libtool libudev-dev
+language: c
+compiler:
+  - clang
+  - gcc
+script:
+  - ./bootstrap-configure --disable-systemd --disable-android
+cache:
+  - apt
